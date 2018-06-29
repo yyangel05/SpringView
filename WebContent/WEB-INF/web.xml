@@ -27,6 +27,7 @@
   	<url-pattern>/jsp/*</url-pattern>
   </servlet-mapping>
   
+<!-- 한글 인코딩을 설정하는 filter -->  
   <filter>
   	<filter-name>encodingFilter</filter-name>
   	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -40,5 +41,19 @@
   	<filter-name>encodingFilter</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
+  
+<!-- put과 delete를 이용하기 위해 설정 -->  
+	<filter>
+		<filter-name>httpMethodFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>httpMethodFilter</filter-name>
+		<servlet-name>dispatcherInternal</servlet-name>
+		<servlet-name>dispatcherTiles2</servlet-name>
+	</filter-mapping>
+  
+  
   
 </web-app>

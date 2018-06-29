@@ -9,6 +9,7 @@
 							http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	
 	
+<!-- 예제001. 로그인. 아이디는 zzuggumi -->	
 	<bean class="controller.LoginController">
 		<property name="authenticator">
 			<bean class="controller.MockAuthenticator"/>
@@ -29,10 +30,31 @@
 		</property>
 	</bean>
 	
+<!-- 예제002 객체생성. 회원가입 -->	
 	<bean class="controller.RegisterMemberController"/>
 	
-
+<!-- 예제003 객체생성. 게시글 작성, 수정, 삭제 -->	
+	<bean class="controller.ArticleController"/>
 							
+<!-- 예제004 객체생성. 언어를 en과 ko를 바꿔가며 쓰기 위한 예제. 링크를 누르면 설정만 변함 -->			
+	<bean class="controller.LocaleChangeController"
+		 p:localeResolver-ref="localeResolver"/>
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+	
+<!-- 예제005 객체생성. 언어를 en과 ko를 바꿔가며 쓰기 위한 예제. 링크를 누르면 변환된 페이지로 바로이동 -->			
+	<bean class="controller.LocaleChangeController2"/>
+	<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
+	p:paramName="language"/>
+	
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="localeChangeInterceptor"/>
+			</list>
+		</property>
+	</bean>
+		 		 
+				
 </beans>
 		
 		
