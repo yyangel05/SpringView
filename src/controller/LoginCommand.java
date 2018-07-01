@@ -2,9 +2,9 @@ package controller;
 
 public class LoginCommand {
 	
-	private String id;
-	private String password;
-	private String loginType;
+	private String id; //아이디
+	private String password; //비밀번호
+	private String loginType; //로그인유형(일반회원/기업회원/..)
 	
 	
 	public String getId() {

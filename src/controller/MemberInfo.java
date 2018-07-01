@@ -2,14 +2,14 @@ package controller;
 
 public class MemberInfo {
 	
-	private String userId;
-	private String name;
-	private Address address;
-	private String[] favorites;
-	private String jobCode;
-	private String tool;
-	private String etc;
-	private boolean contractAgreement;
+	private String userId; //아이디
+	private String name; //이름
+	private Address address; //주소. 주소객체타입
+	private String[] favorites; //선호os(win, mac, ubuntu)
+	private String jobCode; //직업(개발자/기획자/디자이너)
+	private String tool; //선호개발툴(이클립스, 비쥬얼스튜디오...)
+	private String etc; //기타 내용칸
+	private boolean contractAgreement; //약관에 동의여부
 	
 	
 	public String getUserId() {

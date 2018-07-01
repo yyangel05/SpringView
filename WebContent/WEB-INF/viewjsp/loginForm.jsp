@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title><spring:message code="login.form.title"/></title>
+<title><spring:message code="login.form.title"/></title> <!-- spring:message태그로 label.properties의 내용을 가져온다. -->
 </head>
 <body>
 

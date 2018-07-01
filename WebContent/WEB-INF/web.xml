@@ -10,6 +10,8 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+  
+<!--   특수문자를 사용할 수 있도록 지정하는 코드. true로 지정되면 커스텀태그나 velocity매크로는 특수문자가 reference로 치환됨-->
   <context-param>
   	<param-name>defaultHtmlEscape</param-name>
   	<param-value>false</param-value>

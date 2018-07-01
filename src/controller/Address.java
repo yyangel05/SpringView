@@ -2,8 +2,8 @@ package controller;
 
 public class Address {
 	
-	private String address1;
-	private String address2;
+	private String address1; //시군구동
+	private String address2; //상세주소
 	
 	
 	public String getAddress1() {
