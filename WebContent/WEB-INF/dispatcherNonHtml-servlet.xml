@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+							
+	<bean id="downloadController" class="controller.DownloadController"	/>
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+	
+	<bean id="download" class="view.DownloadView"/>
+
+<!-- xlsx 파일 다운로드 -->	
+<!-- 	<bean id="pageRanksController" class="controller.PageRanksController"/>
+	<bean id="pageRanks" class="view.PageRanksView"/> -->
+	
+	<bean id="pageRanksController" class="controller.PageRanksController" />
+	<bean id="pageRanks" class="view.PageRanksView" />
+	
+	
+<!-- pdf 파일 다운로드 -->	
+	<bean id="pageReportController" class="controller.PageReportController"/>
+	<bean id="pageReport" class="view.PageReportView"/>
+	
+<!-- xml 파일 다운로드? 출력? -->	
+	<bean id="pageXmlReport" class="org.springframework.web.servlet.view.xml.MarshallingView">
+		<property name="marshaller" ref="marshaller"/>
+		<property name="modelKey" value="report"/>
+	</bean>
+	
+	<bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="classesToBeBound">
+			<list>
+				<value>controller.PageRankReport</value>
+			</list>
+		</property>
+	</bean>
+	
+<!-- json 파일 다운로드? 출력? -->
+	<bean id="pageJsonReport" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>	
+	
+</beans>
