@@ -39,9 +39,17 @@
 				<value>/WEB-INF/tiles2def/tilesdef.xml</value>
 			</list>
 		</property>
+
+		<property name="preparerFactoryClass" 	
+				  value="org.springframework.web.servlet.view.tiles2.SpringBeanPreparerFactory"/>		
 	</bean>
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
 	</bean>
+	
+<!-- 예제 006. 회원가입 관련 타일즈 설정을 위한 작업 -->	
+	<bean class="controller.RegisterMemberController"/>
+	<bean id="menuPreparer" class="tiles2.MenuPreparer"/>
+	
 </beans>		
