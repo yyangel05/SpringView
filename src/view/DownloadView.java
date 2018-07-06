@@ -21,7 +21,7 @@ public class DownloadView extends AbstractView { //다운로드를 담당하는 
 	
 	@Override
 	protected void renderMergedOutputModel(Map<String, Object> model,
-						HttpServletRequest request, HttpServletResponse response) throws Exception {
+				   HttpServletRequest request, HttpServletResponse response) throws Exception {
 		File file = (File) model.get("downloadFile");
 		
 		response.setContentType(getContentType()); //contentType설정
